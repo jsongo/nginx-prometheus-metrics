@@ -97,4 +97,4 @@ COPY nginx.conf.default         /usr/local/openresty/nginx/conf/nginx.conf
 COPY *.conf            /etc/nginx/conf.d/
 COPY lib/prometheus.lua /usr/local/openresty/luajit/lib
 
-CMD ["/usr/local/openresty/bin/openresty", "-t", "-g", "daemon off;"]
+CMD ["/usr/local/openresty/bin/openresty", "-g", "daemon off;"]
