@@ -1,6 +1,6 @@
 FROM alpine:latest
 
-MAINTAINER Evan Wies <evan@neomantra.net>
+MAINTAINER jsongo <jsongo@qq.com>
 
 # Docker Build Arguments
 ARG RESTY_VERSION="1.11.2.5"
@@ -91,12 +91,10 @@ RUN apk add --no-cache --virtual .build-deps \
 # Add additional binaries into PATH for convenience
 ENV PATH=$PATH:/usr/local/openresty/luajit/bin/:/usr/local/openresty/nginx/sbin/:/usr/local/openresty/bin/
 
-MAINTAINER jsongo <jsongo@qq.com>
-
 VOLUME /etc/nginx
 
 COPY nginx.conf.default         /usr/local/openresty/nginx/conf/nginx.conf
 COPY *.conf            /etc/nginx/conf.d/
 COPY lib/prometheus.lua /usr/local/openresty/luajit/lib
 
-RUN nginx -t
+CMD ["/usr/local/openresty/bin/openresty", "-t", "-g", "daemon off;"]
