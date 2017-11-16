@@ -96,7 +96,7 @@ MAINTAINER jsongo <jsongo@qq.com>
 VOLUME /etc/nginx
 
 COPY nginx.conf.default         /usr/local/openresty/nginx/conf/nginx.conf
-COPY *.conf            /etc/nginx/conf.d/
+COPY *.conf            /etc/nginx/sites-enabled/
 COPY lib/prometheus.lua /usr/local/openresty/luajit/lib
 
 RUN nginx -t
