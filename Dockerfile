@@ -91,7 +91,7 @@ RUN apk add --no-cache --virtual .build-deps \
 # Add additional binaries into PATH for convenience
 ENV PATH=$PATH:/usr/local/openresty/luajit/bin/:/usr/local/openresty/nginx/sbin/:/usr/local/openresty/bin/
 
-VOLUME /etc/nginx/conf.d
+VOLUME ["/etc/nginx/conf.d"]
 
 COPY nginx.conf.default         /usr/local/openresty/nginx/conf/nginx.conf
 COPY *.conf            /etc/nginx/sites-enabled/
