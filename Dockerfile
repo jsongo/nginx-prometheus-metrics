@@ -7,6 +7,7 @@ ARG RESTY_VERSION="1.11.2.5"
 ARG RESTY_OPENSSL_VERSION="1.0.2k"
 ARG RESTY_PCRE_VERSION="8.40"
 ARG RESTY_J="1"
+# --with-ngx_http_gzip_module \
 ARG RESTY_CONFIG_OPTIONS="\
     --with-file-aio \
     --with-http_addition_module \
@@ -16,7 +17,7 @@ ARG RESTY_CONFIG_OPTIONS="\
     --with-http_geoip_module=dynamic \
     --with-http_gunzip_module \
     --with-http_gzip_static_module \
-    --with-ngx_http_gzip_module \
+    --with-http_gzip_module \
     --with-http_image_filter_module=dynamic \
     --with-http_mp4_module \
     --with-http_random_index_module \
