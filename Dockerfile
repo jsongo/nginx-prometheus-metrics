@@ -1,13 +1,12 @@
 FROM alpine:latest
 
-MAINTAINER jsongo <jsongo@qq.com>
+LABEL author="jsongo <jsongo@qq.com>"
 
 # Docker Build Arguments
-ARG RESTY_VERSION="1.11.2.5"
-ARG RESTY_OPENSSL_VERSION="1.0.2k"
-ARG RESTY_PCRE_VERSION="8.40"
+ARG RESTY_VERSION="1.13.6.2"
+ARG RESTY_OPENSSL_VERSION="1.1.0h"
+ARG RESTY_PCRE_VERSION="8.42"
 ARG RESTY_J="1"
-# --with-ngx_http_gzip_module \
 ARG RESTY_CONFIG_OPTIONS="\
     --with-file-aio \
     --with-http_addition_module \
@@ -37,10 +36,8 @@ ARG RESTY_CONFIG_OPTIONS="\
     --with-stream \
     --with-stream_ssl_module \
     --with-threads \
-    --add-module=/nginx-module-vts \
     "
 ARG RESTY_CONFIG_OPTIONS_MORE=""
-COPY ./nginx-module-vts /nginx-module-vts
 
 # These are not intended to be user-specified
 ARG _RESTY_CONFIG_DEPS="--with-openssl=/tmp/openssl-${RESTY_OPENSSL_VERSION} --with-pcre=/tmp/pcre-${RESTY_PCRE_VERSION}"
